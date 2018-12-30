@@ -1,0 +1,64 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "BankTransfer",
+    "x-lastModified": "Oct 10, 2016 19:21PM PST"
+  },
+  "paths": {
+    "/transfer/{customerId}": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Transfer complete"
+          }
+        },
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "description": "Customer ID",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "123456"
+          },
+          {
+            "name": "fromAccount",
+            "in": "formData",
+            "description": "Account to move funds from.",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "483579434"
+          },
+          {
+            "name": "toAccount",
+            "in": "formData",
+            "description": "Account to move funds to",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "123895324"
+          },
+          {
+            "name": "amount",
+            "in": "formData",
+            "description": "Amount",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "10"
+          }
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "description": "Transfer funds between 2 accounts owned by the same customer."
+      }
+    }
+  }
+}
