@@ -1,0 +1,62 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.1",
+    "title": "ParcelTracking",
+    "x-lastModified": "Dec 30, 2018 13:44PM PST"
+  },
+  "paths": {
+    "/parcels/{parcelId}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/ParcelTracking"
+            },
+            "examples": {
+              "application/json": {
+                "parcelID": "123456",
+                "availableUntil": "2016-10-25T03:54:49.674Z",
+                "location": "My Post Office"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parcelId",
+            "in": "path",
+            "description": "Parcel identifier",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "123456"
+          }
+        ],
+        "operationId": "getParcels_parcelId"
+      }
+    }
+  },
+  "definitions": {
+    "ParcelTracking": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "parcelID": {
+          "type": "string"
+        },
+        "availableUntil": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
