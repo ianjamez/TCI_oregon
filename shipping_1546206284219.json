@@ -1,0 +1,337 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.6",
+    "title": "shipping",
+    "x-lastModified": "Dec 30, 2018 13:44PM PST",
+    "description": ""
+  },
+  "paths": {
+    "/shipping/v1/products": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            },
+            "examples": {
+              "application/json": {
+                "shipping_products": [
+                  {
+                    "product_id": "EPARCEL-EXP",
+                    "features": [
+                      {
+                        "type": "IDOD"
+                      },
+                      {
+                        "type": "ATL"
+                      },
+                      {
+                        "type": "WKEND"
+                      }
+                    ],
+                    "timeslots": [
+                      {
+                        "ts_id": "1",
+                        "start_time": "09:00",
+                        "end_time": "11:00",
+                        "description": "9AM - 11AM"
+                      },
+                      {
+                        "ts_id": "2",
+                        "start_time": "13:00",
+                        "end_time": "15:00",
+                        "description": "1PM - 3PM"
+                      },
+                      {
+                        "ts_id": "3",
+                        "start_time": "11:00",
+                        "end_time": "13:00",
+                        "description": "11AM - 1PM"
+                      },
+                      {
+                        "ts_id": "4",
+                        "start_time": "17:00",
+                        "end_time": "19:00",
+                        "description": "5PM - 7PM"
+                      }
+                    ],
+                    "shipping_dates": [
+                      {
+                        "dispatch_date": "2016-02-08",
+                        "arrival_date": "2016-02-12",
+                        "arrival_day_of_week": "Saturday",
+                        "timeslots_available": [
+                          {
+                            "ts_id": "2"
+                          },
+                          {
+                            "ts_id": "3"
+                          }
+                        ]
+                      },
+                      {
+                        "dispatch_date": "2016-03-08",
+                        "arrival_date": "2016-03-12",
+                        "arrival_day_of_week": "Monday",
+                        "timeslots_available": [
+                          {
+                            "ts_id": "2"
+                          },
+                          {
+                            "ts_id": "3"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "product_id": "EPARCEL-REG",
+                    "features": [
+                      {
+                        "type": "IDOD"
+                      },
+                      {
+                        "type": "ATL"
+                      }
+                    ],
+                    "timeslots": [
+                      {
+                        "ts_id": "1",
+                        "start_time": "15:00",
+                        "end_time": "17:00",
+                        "description": "3PM - 5PM"
+                      },
+                      {
+                        "ts_id": "2",
+                        "start_time": "12:00",
+                        "end_time": "17:00",
+                        "description": "PM"
+                      },
+                      {
+                        "ts_id": "3",
+                        "start_time": "17:00",
+                        "end_time": "19:00",
+                        "description": "5PM - 7PM"
+                      },
+                      {
+                        "ts_id": "4",
+                        "start_time": "09:00",
+                        "end_time": "11:00",
+                        "description": "9AM - 11AM"
+                      }
+                    ],
+                    "shipping_dates": [
+                      {
+                        "dispatch_date": "2016-02-08",
+                        "arrival_date": "2016-02-12",
+                        "arrival_day_of_week": "Monday",
+                        "timeslots_available": [
+                          {
+                            "ts_id": "2"
+                          },
+                          {
+                            "ts_id": "3"
+                          }
+                        ]
+                      },
+                      {
+                        "dispatch_date": "2016-03-08",
+                        "arrival_date": "2016-03-12",
+                        "arrival_day_of_week": "Tuesday",
+                        "timeslots_available": [
+                          {
+                            "ts_id": "2"
+                          },
+                          {
+                            "ts_id": "3"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "product_ids",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string",
+            "format": "",
+            "default": "STR-ON,STR-ARL"
+          },
+          {
+            "name": "features",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string",
+            "format": "",
+            "default": "IDOD,ATL,TIMESLOTS,WKEND"
+          },
+          {
+            "name": "from_postcode",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 3000
+          },
+          {
+            "name": "to_postcode",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 2000
+          },
+          {
+            "name": "arrival_date",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string",
+            "format": "date",
+            "default": "2016-06-30"
+          },
+          {
+            "name": "arrival_end_date",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string",
+            "format": "date",
+            "default": "2016-07-09"
+          },
+          {
+            "name": "no_dispatch_before",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "type": "string",
+            "format": "date",
+            "default": "2016-05-28"
+          }
+        ],
+        "tags": [],
+        "operationId": "getShippingV1Products"
+      }
+    }
+  },
+  "definitions": {
+    "Response": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "shipping_products": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "product_id": {
+                "type": "string"
+              },
+              "features": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ]
+                }
+              },
+              "timeslots": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "ts_id": {
+                      "type": "string"
+                    },
+                    "start_time": {
+                      "type": "string"
+                    },
+                    "end_time": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "ts_id",
+                    "start_time",
+                    "end_time",
+                    "description"
+                  ]
+                }
+              },
+              "shipping_dates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "dispatch_date": {
+                      "type": "string"
+                    },
+                    "arrival_date": {
+                      "type": "string"
+                    },
+                    "arrival_day_of_week": {
+                      "type": "string"
+                    },
+                    "timeslots_available": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "ts_id": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "ts_id"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "dispatch_date",
+                    "arrival_date",
+                    "arrival_day_of_week",
+                    "timeslots_available"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "product_id",
+              "features",
+              "timeslots",
+              "shipping_dates"
+            ]
+          }
+        }
+      },
+      "required": [
+        "shipping_products"
+      ]
+    }
+  }
+}
