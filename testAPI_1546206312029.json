@@ -1,0 +1,117 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "testAPI",
+    "x-lastModified": "Dec 30, 2018 13:45PM PST"
+  },
+  "paths": {
+    "/test/me": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/GiveNewSchemaNameHere"
+            },
+            "examples": {
+              "application/json": {
+                "response": "hello world"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "world"
+          }
+        ],
+        "operationId": "getTestMe"
+      },
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "bob"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "password123"
+          }
+        ],
+        "operationId": "postTestMe"
+      }
+    },
+    "/login": {
+      "post": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "bob"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "Password123"
+          }
+        ],
+        "operationId": "postLogin"
+      }
+    }
+  },
+  "definitions": {
+    "GiveNewSchemaNameHere": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "string",
+          "default": "hello world"
+        }
+      }
+    }
+  }
+}
